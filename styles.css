@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgb(100, 214, 223), white);
+}
+
+.container {
+    margin-top: 8em;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.container > button {
+    cursor: pointer;
+    height: 90px;
+  }
+
+.all-clear {
+    grid-column: span 2;
+}
+
+.equals {
+    grid-column:  span 2;
+}
+
+.display {
+    grid-column: 1 / -1;
+    background-color: rgb(252, 252, 252);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 400px;
+    height: 100px;
+    font-size: 2em;
+    color: black;
+  }
