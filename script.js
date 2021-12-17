@@ -1,3 +1,5 @@
+
+
 //consts
 
 const numberButtons = document.querySelectorAll(".number")
@@ -36,18 +38,72 @@ function clear () {
     secondValue = "";
     computeOperator = "";
     display.textContent = "";
+    computeOperator = "";
 }
 
 function compute(computeOperator) {
-    firstValue = parseInt(display.textContent);
-    display.textContent = ""
-    console.log(firstValue)
-    newValue = "";
-    oldValue = "";
+
+    let computationResult;
+    display.textContent = "";
+    secondValue = display.textContent;
+    if (computeOperator === "+") {
+        computationResult = parseInt(firstValue) + parseInt(secondValue);
+        display.textContent = computationResult;
+        firstValue = computationResult;
+    }
+    else if (computeOperator === "-") {
+        computationResult = parseInt(firstValue) - parseInt(secondValue);
+        display.textContent = computationResult;
+        firstValue = computationResult;
+    }
+    else if (computeOperator === "*") {
+        computationResult = parseInt(firstValue) * parseInt(secondValue);
+        display.textContent = computationResult;
+        firstValue = computationResult;
+    }
+    else if (computeOperator === "÷") {
+        computationResult = parseInt(firstValue) / parseInt(secondValue);
+        display.textContent = computationResult;
+        firstValue = computationResult;
+    }
+
+
+    // if (firstValue === undefined && secondValue === undefined) {
+    //     firstValue = display.textContent;
+    //     display.textContent = ""
+    // }
+    // else if (firstValue !== undefined) {
+    //     secondValue = display.textContent;
+    //     if (computeOperator === "+") {
+    //         computationResult = parseInt(firstValue) + parseInt(secondValue);
+    //         display.textContent = computationResult;
+    //         firstValue = computationResult;
+    //     }
+    //     else if (computeOperator === "-") {
+    //         computationResult = parseInt(firstValue) - parseInt(secondValue);
+    //         display.textContent = computationResult;
+    //         firstValue = computationResult;
+    //     }
+    //     else if (computeOperator === "*") {
+    //         computationResult = parseInt(firstValue) * parseInt(secondValue);
+    //         display.textContent = computationResult;
+    //         firstValue = computationResult;
+    //     }
+    //     else if (computeOperator === "÷") {
+    //         computationResult = parseInt(firstValue) / parseInt(secondValue);
+    //         display.textContent = computationResult;
+    //         firstValue = computationResult;
+    //     }
+    // }
+    // firstValue = parseInt(display.textContent);
+    // display.textContent = ""
+    // console.log(`first value = ${firstValue}`)
+    // console.log(`second value = ${secondValue}`)
+    // newValue = "";
+    // oldValue = "";
 }
 
 function equal (firstValue, secondValue, computeOperator) {
-    let computation;
 }
 
 //button event listeners
