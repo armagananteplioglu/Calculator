@@ -1,7 +1,3 @@
-
-
-//consts
-
 const numberButtons = document.querySelectorAll(".number")
 const allClear = document.querySelector (".all-clear")
 const del = document.querySelector(".del")
@@ -9,119 +5,55 @@ const operatorButtons = document.querySelectorAll(".operator")
 const dot = document.querySelector(".dot")
 const equals = document.querySelector(".equals")
 const display = document.querySelector(".display")
-let newValue;
-let oldValue;
-let firstValue;
-let secondValue;
-let computeOperator;
+const allButtons = document.querySelectorAll("button")
 
 //functions
 
-function displayNumber(newValue) {
-    if (oldValue == undefined) {
-        display.textContent = parseInt(newValue);
-        oldValue = newValue
-        firstValue = oldValue
-    }
+// function clearAll () {
+//     display.innerText = "";
+// }
 
-    else {
-        display.textContent = oldValue + newValue
-        oldValue = oldValue + newValue
-        firstValue = oldValue
-    }
+
+
+function equalButton() {
+    display.innerText += eval(display)
 }
+//event listeners 
 
-function clear () {
-    newValue = "";
-    oldValue = "";
-    firstValue = "";
-    secondValue = "";
-    computeOperator = "";
-    display.textContent = "";
-    computeOperator = "";
-}
+// numberButtons.forEach (button => {
+//     button.addEventListener("click", (e) => {
+//         display.innerText += e.target.innerText
+//     })
+// })
 
-function compute(computeOperator) {
-
-    let computationResult;
-    display.textContent = "";
-    secondValue = display.textContent;
-    if (computeOperator === "+") {
-        computationResult = parseInt(firstValue) + parseInt(secondValue);
-        display.textContent = computationResult;
-        firstValue = computationResult;
-    }
-    else if (computeOperator === "-") {
-        computationResult = parseInt(firstValue) - parseInt(secondValue);
-        display.textContent = computationResult;
-        firstValue = computationResult;
-    }
-    else if (computeOperator === "*") {
-        computationResult = parseInt(firstValue) * parseInt(secondValue);
-        display.textContent = computationResult;
-        firstValue = computationResult;
-    }
-    else if (computeOperator === "÷") {
-        computationResult = parseInt(firstValue) / parseInt(secondValue);
-        display.textContent = computationResult;
-        firstValue = computationResult;
-    }
-
-
-    // if (firstValue === undefined && secondValue === undefined) {
-    //     firstValue = display.textContent;
-    //     display.textContent = ""
-    // }
-    // else if (firstValue !== undefined) {
-    //     secondValue = display.textContent;
-    //     if (computeOperator === "+") {
-    //         computationResult = parseInt(firstValue) + parseInt(secondValue);
-    //         display.textContent = computationResult;
-    //         firstValue = computationResult;
-    //     }
-    //     else if (computeOperator === "-") {
-    //         computationResult = parseInt(firstValue) - parseInt(secondValue);
-    //         display.textContent = computationResult;
-    //         firstValue = computationResult;
-    //     }
-    //     else if (computeOperator === "*") {
-    //         computationResult = parseInt(firstValue) * parseInt(secondValue);
-    //         display.textContent = computationResult;
-    //         firstValue = computationResult;
-    //     }
-    //     else if (computeOperator === "÷") {
-    //         computationResult = parseInt(firstValue) / parseInt(secondValue);
-    //         display.textContent = computationResult;
-    //         firstValue = computationResult;
-    //     }
-    // }
-    // firstValue = parseInt(display.textContent);
-    // display.textContent = ""
-    // console.log(`first value = ${firstValue}`)
-    // console.log(`second value = ${secondValue}`)
-    // newValue = "";
-    // oldValue = "";
-}
-
-function equal (firstValue, secondValue, computeOperator) {
-}
-
-//button event listeners
-
-numberButtons.forEach (number => {
-    number.addEventListener ("click", () => {
-        newValue = number.innerHTML
-        displayNumber(newValue)
+allButtons.forEach (a => {
+    a.addEventListener ("click", (e) => {
+        switch (e.target.innerText){
+            case "AC":
+                display.innerText = "";
+                break;
+            case "DEL":
+                if (display.innerText) {
+                    display.innerText = display.innerText.slice(0, -1);
+                }
+                break;
+            case "=":
+                try{
+                    display.innerText = eval(display.innerText);
+                } catch {
+                    display.innerText = "Invalid Expression"
+                }
+                
+                break;
+            default:
+                display.innerText += e.target.innerText
+        }
+        
     })
 })
 
-allClear.addEventListener ("click", clear)
+allClear.addEventListener ("click", clearAll)
 
-operatorButtons.forEach(button => {
-    button.addEventListener ("click", () => {
-        computeOperator = button.innerHTML
-        compute(computeOperator)
-    })
-})
+del.addEventListener ("click", delLast)
 
-equals.addEventListener("click", equal)
+equals.addEventListener("click", equalButton)
