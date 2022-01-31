@@ -1,45 +1,61 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, rgb(100, 214, 223), white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    width: 100vh;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKdir2QAcR3rep7vS-d3v2eF3TD_OwP-RcK9ECvo16d7x-hzD9u2NJcAoe3ivlfA3Qso&usqp=CAU")
 }
 
-.container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+.wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1em;
+    padding: 1em;
     align-items: center;
-    background-color: cadetblue;
-    height: auto;
-    width: 520px;
-    gap: 20px;
-    padding: 10px;
-    border: 2px solid yellow;
+    align-self: center;
+    justify-content: center;
+    border: 1px solid black;
+    background: beige;
 }
 
-.buttons {
+.buttonContainer {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
-.all-clear, .equals {
-    grid-column: span 2;
+.displayContainer {
+    width: 99%;
+    height: 6.5rem;
+    border: 1px solid black;
+    text-align: right;
+    font-size: 3rem;
+    background: white;
+}
+
+.minordisplay {
+    margin: 0.3em;
+    width: 95%;
+    height: 1.5em;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    text-indent: 0.5em;
+    text-align: right;
+    color: grey;
 }
 
 .display {
-    background-color: rgb(226, 226, 226);
-    border: 1px solid white;
-    height: 60px;
-    width: 400px;
-    text-align: right;
-    font-size: 2rem;
-    line-height: 60px;
+    margin-bottom: 0.5em;
+}
+
+.button {
+    font-size: 3.5rem;
+}
+
+.number {
+    font-size: 3.5rem;
+}
+
+.operator {
+    font-size: 3.5rem;
 }
