@@ -206,3 +206,24 @@ equals.addEventListener("click", equalsButton)
 sqrt.addEventListener("click", squareRoot)
 factorial.addEventListener("click", calcFactorial)
 dot.addEventListener("click", addDot)
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "0" || event.key === "1" || event.key === "2" || event.key === "3" || event.key === "4" || event.key === "5" || event.key === "6" || event.key === "7" || event.key === "8" || event.key === "9") {
+    appendNumber (event.key)
+  }
+  else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
+    setOperator(event.key)
+  }
+  else if (event.key === ".") {
+    addDot()
+  }
+  else if (event.keyCode === 13) {
+  equalsButton ()
+  }
+  else if (event.keyCode === 8) {
+  deleteLast ()
+  }
+  else if (event.keyCode === 46) {
+  clearEverything ()
+  }
+})
